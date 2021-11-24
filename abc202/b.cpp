@@ -5,16 +5,17 @@ int main(){
   string S;
   cin >> S;
   reverse(S.begin(), S.end());
-  for (char c:S){
-    if(c == "6"){
-      cout << "9";
+  for (int i=0; i<S.size(); i++){
+    if(S.at(i)== '6'){
+      cout << '9';
     }
-    else if(c == "9"){
-      cout << "6";
+    else if(S.at(i)== '9'){
+      cout << '6';
     }
     else{
-      cout << c;
+      cout <<S.at(i);
     }
   }
+  cout << endl;
   return 0;
 }

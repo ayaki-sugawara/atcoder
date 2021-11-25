@@ -31,29 +31,18 @@ int main(){
   int ans;
   for (int i=0; i<Q; i++){
       cin >> u >> d;
-      U.push_back(u);
+      U.push_back(u-1);
       D.push_back(d+1);
   }
 
   for (int i=0; i<Q; i++){
-      
+      D[i] = D[i] - path[u].size();
   }
 
   for (int i=0; i<Q; i++){
-      ans = 0;
-      cin >> u >> d;
-      node_num = d+1;
-      for(int j=0; j<path.size(); j++){
-          if(path[j].size() == node_num){
-              for(int k=0; k<path[j].size(); k++){
-                  if(path[j][k] == u){
-                      ans++;
-                      break;
-                  }
-              }
-          }
-      }
-      cout << ans << endl;
+    cout << D[i] << " " ;
   }
+
+
   return 0;
 }

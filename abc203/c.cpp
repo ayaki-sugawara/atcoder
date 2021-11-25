@@ -5,18 +5,16 @@ int main(){
   int N;
   long long K, a, b;
   cin >> N >> K;
-  vector<long long> dati(10000000000000000000);
+  vector<pair<long long, long long> > A;
   for (int i=0; i<N; i++){
     cin >> a >> b;
-    dati[a] += b;
+    A.push_back({a,b});
   }
-  long long mura=0;
-  while (K>0) {
-    mura++;
-    K--;
-    cout << "mura: " << mura << endl;
-    cout << "kane: " << K << endl;
+  sort(A.begin(), A.end());
+  for (int i=0; i<N; i++){
+    if(A[i].first > K) break;
+    K+=A[i].second;
   }
-  cout << mura << endl;
+  cout << K << endl;
   return 0;
 }

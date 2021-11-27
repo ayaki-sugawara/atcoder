@@ -2,17 +2,19 @@
 using namespace std;
 
 int main(){
-  int N, W;
-  vector<int> A;
-  vector<int> B;
-  int sum = 0;
+  long long N, W;
   cin >> N >> W;
+  vector<pair<long long, long long>> v(N);
   for(int i=0; i<N; i++){
-    cin >> A[i] >> B[i];
-    sum += B[i];
+    cin >> v[i].first >> v[i].second;
   }
-  vector<vector<bool>> d(N, vector<bool>(sum+2, false));
-  d[0][0] = true;
-  d[0][B[0]]a;
+  sort(v.begin(), v.end());
+  reverse(v.begin(), v.end());
+  long long ans = 0;
+  for (int i=0; i<N; i++){
+    ans += v[i].first*min(W, v[i].second);
+    W -= min(W, v[i].second);
+  }
+  cout << ans << endl;
   return 0;
 }

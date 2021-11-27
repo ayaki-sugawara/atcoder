@@ -9,7 +9,7 @@ int main() {
   int n;
   cin >> n;
   vector<int> t(n);
-  double sum = 0;
+  int sum = 0;
   for (int i=0; i<n; i++){
     cin >> t[i];
     sum += t[i];
@@ -22,7 +22,7 @@ int main() {
         d[i][j] = d[i-1][j] | d[i-1][j-t.at(i)];
       }
       else {
-        d[i][j] = d[i-1][j] | false;
+        d[i][j] = d[i-1][j];
       }
     }
   }
@@ -32,10 +32,16 @@ int main() {
 //    }
 //    cout << endl;
 //  }
-  double half = sum / 2;
+  int half;
+  if (sum % 2 == 0){
+    half = sum / 2;
+  }
+  else {
+    half = (sum + 1) / 2;
+  }
   int ans;
-  for (int i=0; i<101010; i++){
-    if (i > half && d[n-1][i] ){
+  for (int i=half; i<101010; i++){
+    if (d[n-1][i] ){
       ans = i;
       break;
     }

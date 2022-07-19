@@ -17,7 +17,7 @@ int main() {
         } else {
             int honto = x - zure;
             if(honto<=0) honto += n;
-            else if(honto >=n) honto -= n;
+            else if(honto >n) honto -= n;
             cout << s.at(honto-1) << endl;
         }
     }
